@@ -1,8 +1,14 @@
+import os
+
 from cgitb import reset
 from email import message
 
 def dvide(num1, num2):
-     return num1/ num2 
+    if num2 == 0:
+       print("no  es posible dividir entre 0")
+       num2 = 1
+
+    return num1/ num2 
 
 def suma(num1, num2):
     return num1 + num2
@@ -31,15 +37,15 @@ if __name__=='__main__':
             
             resultado_suma = suma(numeros[0],numeros[1])
             print("El resultado de la suma es",resultado_suma)
-        if  opcion == 2:
+        elif  opcion == 2:
             numeros=return_values()
             resultado_restsa = resta(numeros[0],numeros[1])
             print("El resultado de la resta es",resultado_restsa)
-        if  opcion == 3:
+        elif  opcion == 3:
             numeros=return_values()
             resultado_m = multi(numeros[0],numeros[1])
             print("El resultado de la multiplicasion es",resultado_m)
-        if  opcion == 4:
+        elif  opcion == 4:
             numeros=return_values()
             resultado_d = dvide(numeros[0],numeros[1])
             print("El resultado de la division es",resultado_d)
@@ -48,3 +54,7 @@ if __name__=='__main__':
             print('bye')
             break
 
+clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
+
+
+clearConsole()
